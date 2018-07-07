@@ -8,28 +8,32 @@
    </head>
    <body>
    	<form method="post" action="/creacc">
-   		
+   		<p> Nome Utente: <input type="text" name="nom"> </p>
+         <p> Password: <input type="text" name="psw"> </p>
    		<p> <input type="submit" value="Crea Conto Corrente"> </p>
 	</form>
 
    <hr>
 
-      <form method="post" action="/deposito">
+      <form method="put" action="/deposito">
+         <p> ID: <input type="text" name="id"> </p>
          <p> Totale Deposito: <input type="text" name="dep"> </p>
          <p> <input type="submit" value="Deposita"> </p>
    </form>
 
    <hr>
 
-   <form method="post" action="/bonifico">
-         <p> IBAN Creditore: <input type="text" name="ibancred"> </p>
+   <form method="put" action="/bonifico">
+         <p> ID: <input type="text" name="id"> </p>
+         <p> ID Creditore: <input type="text" name="idcred"> </p>
          <p> Importo: <input type="text" name="importo"> </p>
          <p> <input type="submit" value="Invia Bonifico"> </p>
    </form>
 
    <hr>
 
-   <form method="post" action="/prelievo">
+   <form method="put" action="/prelievo">
+         <p> ID: <input type="text" name="id"> </p>
          <p> Totale Prelievo: <input type="text" name="prel"> </p>
          <p> <input type="submit" value="Preleva"> </p>
    </form>
@@ -37,12 +41,13 @@
    <hr>
 
    <form method="post" action="/bollettino">
-         <p> ID Creditore: <input type="text" name="prel"> </p>
+         <p> ID Debitore: <input type="text" name="iddeb"> </p>
+         <p> ID Creditore: <input type="text" name="idcred"> </p>
          <select name="selection">
             <option value="MAV">MAV</option>
             <option value="PGOOA">PGOOA</option>
          </select>
-         <p> Importo: <input type="text" name="prel"> </p>
+         <p> Importo: <input type="text" name="importo"> </p>
          <p> <input type="submit" value="Bollettino"> </p>
    </form>
 
