@@ -1,0 +1,16 @@
+[
+	{
+		"id": 0,
+		"nomeUtente": "Carbognin",
+		"password": "ciao",
+		"saldo": 4000,
+		"bollettini": []
+	},
+	{
+		"id": 1,
+		"nomeUtente": "Donatoni",
+		"password": "ciao",
+		"saldo": 0,
+		"bollettini": []
+	}
+]
