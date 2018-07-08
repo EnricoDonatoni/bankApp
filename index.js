@@ -55,9 +55,20 @@ app.post("/creacc", function(req, res){
 
 	console.log(nome);
 
-    ccs.push(modulo.nuovocc(nome,password,ccs.length)); 
+	new Promise (function(resolve){
+		resolve(modulo.nuovocc(nome,password,ccs.length));
+	}).then(function(resolve){
+		ccs.push(resolve);
+		res.sendfile(__dirname + "/pages/esitopositivo.html");
+	}).catch(function(error){
+		res.status(400).json({
+					errore: error
+				});
+	});
+
+    /*ccs.push(modulo.nuovocc(nome,password,ccs.length)); 
     console.log(ccs);
-    res.sendfile(__dirname + "/pages/esitopositivo.html");
+    res.sendfile(__dirname + "/pages/esitopositivo.html");*/
 }); 
 
 app.get("/deposito", function(req, res){
