@@ -222,6 +222,24 @@ app.delete("/deletecc", function(req, res){
 
 });
 
+app.get("/cambiosaldo", function(req, res){
+
+	var id = req.body.id || req.query.id;
+	var certo = req.body.certo || req.query.certo;
+	var incerto = req.body.incerto || req.query.incerto;
+
+	var indice = modulo.ricercacc(ccs,id);
+	modulo.cambioCI(ccs[indice].saldo,certo,incerto)
+	.then(result => {
+		res.json(result);
+	})
+
+	//res.json(modulo.cambioCI(ccs[indice].saldo,certo,incerto));
+
+
+
+
+});
 
 //listen in a specific port
 app.listen((process.env.PORT || 65000 || 80));
