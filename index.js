@@ -53,6 +53,8 @@ app.post("/creacc", function(req, res){
 	var nome = req.body.nom || req.query.nom;
 	var password = req.body.psw || req.query.psw;
 
+	console.log(nome);
+
     ccs.push(modulo.nuovocc(nome,password,ccs.length)); 
     console.log(ccs);
     res.sendfile(__dirname + "/pages/esitopositivo.html");
