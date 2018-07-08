@@ -59,6 +59,7 @@ app.post("/creacc", function(req, res){
 		resolve(modulo.nuovocc(nome,password,ccs.length));
 	}).then(function(resolve){
 		ccs.push(resolve);
+		throw "shyt";
 		res.sendfile(__dirname + "/pages/esitopositivo.html");
 	}).catch(function(error){
 		res.status(400).json({
