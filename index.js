@@ -184,6 +184,41 @@ app.post("/bollettino", function(req, res){
 
 });
 
+app.delete("/deletecc", function(req, res){
+
+	var id = req.body.id || req.query.id;
+
+	var indice = modulo.ricercacc(ccs,id);
+	var nonpagato = false;
+	console.log(ccs);
+
+	console.log(id);
+	if(ccs[indice].bollettini == []){
+		ccs.splice(indice,1);
+		res.sendfile(__dirname + "/pages/esitopositivo.html");
+	}
+	else{
+		var i;
+		for (i=0; i<ccs[indice].bollettini.length; i++){
+			if(!ccs[indice].bollettini[i].pagato){
+				nonpagato = true;
+			}
+		}
+
+		if(nonpagato){
+			res.status(400).json({
+					errore: "Errore"
+				});
+		}
+		else{
+			ccs.splice(indice,1);
+			res.sendfile(__dirname + "/pages/esitopositivo.html");
+		}
+	}
+
+
+
+});
 
 
 //listen in a specific port
