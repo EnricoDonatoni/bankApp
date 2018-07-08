@@ -224,7 +224,7 @@ app.delete("/deletecc", function(req, res){
 
 
 //listen in a specific port
-app.listen((process.env.PORT || 65000));
+app.listen((process.env.PORT || 65000 || 80));
 
 //check status
 console.log('Server running at http://localhost:65000/');
